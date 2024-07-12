@@ -1,11 +1,12 @@
-<article class="flex flex-col rounded-xl bg-white/5 p-4 text-center">
-    <div class="text-left">GovExec</div>
+<article
+    class="group flex flex-col rounded-xl border border-transparent bg-white/5 p-4 text-center transition-colors duration-300 hover:border-blue-600">
+    <a href="#" class="text-left">GovExec</a>
 
-    <div class="py-8 font-bold">
-        <h4>
+    <div class="py-8">
+        <h4 class="text-xl font-bold transition-colors duration-300 group-hover:text-blue-600">
             Full stack Laravel Developer
         </h4>
-        <p>Full Time - From $60,000</p>
+        <p class="mt-2 text-sm">Full Time - From $60,000</p>
     </div>
 
     <div class="mt-auto flex items-center justify-between">
@@ -15,6 +16,6 @@
             <x-tag name="api" />
         </div>
 
-        <img src="https://placehold.co/42x42" alt="logo" class="rounded-xl">
+        <x-employer-logo size="42" />
     </div>
 </article>
