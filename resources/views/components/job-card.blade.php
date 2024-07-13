@@ -1,5 +1,4 @@
-<article
-    class="group flex flex-col rounded-xl border border-transparent bg-white/5 p-4 text-center transition-colors duration-300 hover:border-blue-600">
+<x-panel class="flex flex-col text-center">
     <a href="#" class="text-left">GovExec</a>
 
     <div class="py-8">
@@ -18,4 +17,4 @@
 
         <x-employer-logo size="42" />
     </div>
-</article>
+</x-panel>

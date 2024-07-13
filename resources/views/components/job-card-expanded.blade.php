@@ -1,5 +1,4 @@
-<article
-    class="group flex gap-x-4 rounded-xl border border-transparent bg-white/5 p-4 transition-colors duration-300 hover:border-blue-600">
+<x-panel class="flex space-x-6">
     <div class="">
         <x-employer-logo />
     </div>
@@ -16,4 +15,4 @@
         <x-tag name="backend" />
         <x-tag name="api" />
     </div>
-</article>
+</x-panel>
