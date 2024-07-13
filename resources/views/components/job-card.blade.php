@@ -10,9 +10,9 @@
 
     <div class="mt-auto flex items-center justify-between">
         <div class="space-x-1">
-            <x-tag name="frontend" />
-            <x-tag name="backend" />
-            <x-tag name="api" />
+            <x-tag name="frontend" size="small" />
+            <x-tag name="backend" size="small" />
+            <x-tag name="api" size="small" />
         </div>
 
         <x-employer-logo size="42" />

@@ -12,7 +12,17 @@
         <section>
             <x-section-heading>Tags</x-section-heading>
 
-            <div class="mt-6 space-x-2">
+            <div class="mt-6 flex flex-wrap gap-3">
+                <x-tag name="tag" />
+                <x-tag name="full-stack" />
+                <x-tag name="tag" />
+                <x-tag name="full-stack" />
+                <x-tag name="tag" />
+                <x-tag name="full-stack" />
+                <x-tag name="tag" />
+                <x-tag name="full-stack" />
+                <x-tag name="tag" />
+                <x-tag name="full-stack" />
                 <x-tag name="tag" />
                 <x-tag name="full-stack" />
                 <x-tag name="tag" />
