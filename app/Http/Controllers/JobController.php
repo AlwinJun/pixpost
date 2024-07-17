@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\Tag;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
 
@@ -13,7 +14,19 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        // Check if job featured is true if it is true
+        // store it on $featuredJobs otherwise on $unFeaturedJobs
+        [$featuredJobs, $unFeaturedJobs] = Job::all()->partition(function ($job) {
+            return $job->featured === 1;
+        });
+
+        // dd($unFeaturedJobs, $featuredJobs);
+
+        return view('jobs.index', [
+            'jobs' => $unFeaturedJobs,
+            'featuredJobs' => $featuredJobs,
+            'tags' => Tag::all()
+        ]);
     }
 
     /**
