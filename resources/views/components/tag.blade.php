@@ -1,4 +1,4 @@
-@props(['name', 'size' => 'base'])
+@props(['tag', 'size' => 'base'])
 
 @php
     $classes = 'rounded-xl bg-white/10 transition-colors duration-200 hover:bg-white/25';
@@ -10,4 +10,4 @@
     }
 @endphp
 
-<a href="#" class="{{ $classes }}"> {{ ucfirst($name) }} </a>
+<a href="/tags/{{ strtolower($tag->name) }}" class="{{ $classes }}"> {{ strtolower($tag->name) }} </a>
