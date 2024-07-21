@@ -3,10 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
-use Illuminate\Validation\Rules\File;
+use Illuminate\Validation\Rules\Password;
 
-class StoreEmployerRequest extends FormRequest
+class StoreUserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +23,9 @@ class StoreEmployerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'employer_name' => ['required', 'string', 'max:254'],
-            'employer_logo' => ['required', File::types(['png', 'jpg', 'jpeg', 'webp', 'svg'])],
+            'name' => ['required', 'string', 'max:254'],
+            'email' => ['required', 'string', 'email', 'unique:users', 'max:254'],
+            'password' => ['required', 'string', 'confirmed', Password::min(6), 'max:254'],
         ];
     }
 }
