@@ -5,7 +5,7 @@
 
     <div class="py-8">
         <h4 class="text-xl font-bold transition-colors duration-300 group-hover:text-blue-600">
-            {{ ucfirst($job->title) }}
+            <a href="{{ $job->url }}" target="_blank">{{ ucfirst($job->title) }}</a>
         </h4>
         <p class="mt-2 text-sm">{{ ucfirst($job->schedule) }} From {{ $job->salary }}</p>
     </div>
