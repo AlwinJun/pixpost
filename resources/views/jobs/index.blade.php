@@ -1,11 +1,11 @@
 <x-layout>
     <div class="space-y-10">
         <section class="pt-6 text-center">
-            <h1 class="text-4xl font-bold">Let's Find Your Next Job</h1>
-            <form action="" class="mt-6">
-                <input type="search" name="" placeholder="Web Developer.."
-                    class="w-full max-w-lg rounded-xl border border-white/10 bg-white/5 px-4 py-3" />
-            </form>
+            <x-slot:title>Let's Find Your Next Job</x-slot:title>
+
+            <x-forms.form action="{{ route('search') }}" class="mt-6">
+                <x-forms.input :label="false" name="q" type="search" placeholder="Web Developer.." />
+            </x-forms.form>
         </section>
 
         <section class="pt-10">
