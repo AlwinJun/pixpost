@@ -37,7 +37,7 @@
             @auth
                 <div>
                     <div class="space-x-5 font-bold">
-                        <a href="#">Post a Job</a>
+                        <a href="{{ route('jobs.create') }}">Post a Job</a>
                         <x-forms.form method="POST" action="{{ route('login.destroy') }}" class="inline">
                             @method('DELETE')
                             <x-forms.button class="!mt-0">Logout</x-forms.button>
@@ -49,7 +49,7 @@
             @guest
                 <div class="space-x-5 font-bold">
                     <a href="{{ route('register.create') }}">Sign Up</a>
-                    <a href="{{ route('login.create') }}">Login</a>
+                    <a href="{{ route('login') }}">Login</a>
                 </div>
             @endguest
         </nav>

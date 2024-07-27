@@ -11,6 +11,9 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $with = ['employer', 'tags'];
+    protected $guarded = [''];
+
     public function tag(string $name)
     {
         $tag = Tag::firstOrCreate(['name' => $name]);

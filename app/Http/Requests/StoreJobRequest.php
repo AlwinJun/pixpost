@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreJobRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class StoreJobRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +23,12 @@ class StoreJobRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => ["required", "string", "max:254"],
+            'salary' => ["required", "string", "max:254"],
+            'location' => ["required", "string", "max:254"],
+            'schedule' => ["required", "string", "max:254", Rule::in(['Part Time', 'Full Time'])],
+            'url' => ["required", "string", "max:254", "active_url"],
+            'tags' => ["nullable"],
         ];
     }
 }

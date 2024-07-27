@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use App\Models\Tag;
+use Illuminate\Support\Arr;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreJobRequest;
 use App\Http\Requests\UpdateJobRequest;
 
@@ -16,7 +18,7 @@ class JobController extends Controller
     {
         // Check if job featured is true if it is true
         // store it on $featuredJobs otherwise on $unFeaturedJobs
-        [$featuredJobs, $unFeaturedJobs] = Job::all()->partition(function ($job) {
+        [$featuredJobs, $unFeaturedJobs] = Job::with(['employer', 'tags'])->latest()->get()->partition(function ($job) {
             return $job->featured === 1;
         });
 
@@ -34,7 +36,7 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return view('jobs.create');
     }
 
     /**
@@ -42,7 +44,20 @@ class JobController extends Controller
      */
     public function store(StoreJobRequest $request)
     {
-        //
+        $attributes = $request->validated();
+
+        $attributes['featured'] = $request->has('featured');
+
+        // dd(Arr::only($attributes, 'featured'));
+        $job = auth()->user()->employer->jobs()->create(Arr::except($attributes, 'tags'));
+
+        if ($attributes['tags'] ?? false) {
+            foreach (explode(',', $attributes['tags']) as $tag) {
+                $job->tag($tag);
+            }
+        }
+
+        return redirect('/');
     }
 
     /**
